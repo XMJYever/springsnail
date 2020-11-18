@@ -1,12 +1,14 @@
-Listen 10.194.70.225:12345				//负载均衡服务器程序的地址以及端口号
+Listen 127.0.0.1:8080				//负载均衡服务器程序的地址以及端口号
 
+//下面是测试的百度网站的例子，182.61.200.6和182.61.200.7是百度服务器的ip地址
+//功能：将本地主机作为一个负载均衡服务器，也就是一个中转站，真正的服务器是百度的那两个ip地址对应的服务器。本地主机作为一个中转站，将客户端的连接转发给比较空闲的服务器
 <logical_host>
-  <name>10.194.70.225</name>
-  <port>13579</port>
-  <conns>5</conns>
+  <name>182.61.200.7</name>
+  <port>80</port>
+  <conns>2</conns>
 </logical_host>
 <logical_host>
-  <name>10.194.70.79</name>
-  <port>13579</port>
-  <conns>5</conns>
+	<name>182.61.200.6</name>
+	<port>80</port>
+	<conns>2</conns>
 </logical_host>
